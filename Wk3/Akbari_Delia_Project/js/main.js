@@ -1,32 +1,30 @@
 /*  
-	Your Project Title
-	Author: You
+	Crystal's Candy
+	Author: Delia Akbari
 */
 
-///Need to add the global document ready statment.  Also add the closing tag at the bottom.  
 
+/*----------------------tooltip--------------------------------------------------*/
 
-
-
-$('.masterTooltip').hover(function(){
-	//Hover code
-	var title = $(this).attr('title');
-	$(this).data('tipText', title).removeAttr('title');
-	$('<p class="tooltip"></p>')
-	.text(title)
-	.appendTo('body')
-	.fadeIn('slow');
-}, function() {
-	//hover out
-	$(this).attr('title', $(this).data('tipText'));
-	$('.tooltip').remove();
-}).mousemove(function(e) {
-	var mousex = e.pageX + 20; 
-	var mousey = e.pageY + 10;
-	$('.tooltip')
-	.css({ top:mousey, left:mousex})
-});
-
+	$(".masterTooltip").hover(function(){
+		//Hover over code
+		var title = $(this).attr("title");
+		$(this).data("tipText", title).removeAttr("title");
+		$("<p class='tooltip'></p>")
+		.text(title)
+		.appendTo("body")
+		.fadeIn("slow");
+	}, function(){
+		//Hover out code
+		$(this).attr("title", $(this).data("tiptText"));
+		$(".tooltip").remove();
+	}).mousemove(function(e){
+		var mousex = e.pageX + 20; //Get X coordinates
+		var mousey = e.pageY + 10; //Get Y coordinates
+		$(".tooltip")
+			.css({top: mousey, left: mousex});
+	});
+/*----------------------Modal--------------------------------------------------*/
 
 $('.modalClick') .on('click', function(event) {
 	event.preventDefault();
@@ -48,7 +46,6 @@ $('.close') .on('click', function(event){
 $('.mystatus.') .mouseover(function(){
 	$(this).fadeTo(100, 1);
 });
-
 
 
 
@@ -224,6 +221,4 @@ $('.mystatus.') .mouseover(function(){
 	}
 projects();
 
-
 })(jQuery);
-
