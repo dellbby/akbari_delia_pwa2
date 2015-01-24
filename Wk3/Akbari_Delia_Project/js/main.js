@@ -49,15 +49,53 @@ $('.mystatus.') .mouseover(function(){
 	$(this).fadeTo(100, 1);
 });
 
+(function($){
 
-//No mouseout function - fade will only work on the over.
+	
+/*----------------------login--------------------------------------------------*/
+$('#signinButton').click(function(){
+	var user = $('#user').val();	
+	var pass = $('#pass').val();
+	console.log("password works");
+	$.ajax({
+		url:'xhr/login.php',
+		type: 'post',
+		dataType: 'json',
+		data:{
+			username: user,
+			password: pass
+		},
+		success:function(response){
+			console.log("test user");
+			if (response.error){
+		}else{
+			window.location.assign('admin.html')
+		};
+	}
+});
+
+});
 
 
 
 
-//No code for the accorion.  You can not use a plugin for this code.  You are only allowed to use plugins in week four.  If you update the code by the time the week 3 project is due, I will add points to this assignment.
+
+/*----logout-----*/
 
 
 
 
-///Add the closing tag for the global document ready statement. 
+
+
+
+
+/*----register-----*/
+
+
+
+
+
+
+
+})(jQuery);
+
