@@ -3,7 +3,7 @@
 	Author: Delia Akbari
 */
 
-
+(function($){  //MOVED FROM LINE 52  THIS NEEDS TO BE THE FIRST LINE
 /*----------------------tooltip--------------------------------------------------*/
 
 	$(".masterTooltip").hover(function(){
@@ -43,13 +43,13 @@ $('.close') .on('click', function(event){
 });
 
 
-$('.mystatus.') .mouseover(function(){
+$('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 	$(this).fadeTo(100, 1);
 });
 
 
 
-(function($){
+
 
 	
 /*----------------------login--------------------------------------------------*/
