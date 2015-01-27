@@ -6,7 +6,7 @@
 (function($){  //MOVED FROM LINE 52  THIS NEEDS TO BE THE FIRST LINE
 /*----------------------tooltip--------------------------------------------------*/
 
-	$(".masterTooltip").hover(function(){
+	$('.masterTooltip').hover(function(){
 		//Hover over code
 		var title = $(this).attr("title");
 		$(this).data("tipText", title).removeAttr("title");
@@ -77,6 +77,7 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 	});
 
 /*----logout-----*/
+
 	$(".logOutButton").click(function(e){
 		e.preventDefault;
 		$.get("xhr/logout.php", function(){
@@ -132,7 +133,7 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 	
 	
 	
-	/*----New Project-----*/
+	/*----New Projects-----*/
 	
 	
 		$("#addButton").on("click", function(){
@@ -163,7 +164,20 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 				}
 			});
 	});
+
+
+
+/*----Display username-----*/
+
+	$.getJSON("xhr/check_login.php", function(data){
+		console.log(data);
+		$.each(data, function(key, val){
+			console.log(val.first_name);
+			$(".userid").html("Welcome User: "+ val.first_name);
+		})
+	});
 	
+		
 	
 	/*----Get Projects-----*/
 	
