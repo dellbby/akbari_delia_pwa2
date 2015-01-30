@@ -76,7 +76,7 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 		});
 	});
 
-/*----logout-----*/
+/*----logout--------------------------------------------------*/
 	$(".logOutButton").click(function(e){
 		e.preventDefault;
 		$.get("xhr/logout.php", function(){
@@ -90,7 +90,7 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 
 
 
-/*----register-----*/
+/*----register--------------------------------------------------*/
 	$("#register").on("click", function(){
 		var firstname= $("#first").val(),
 			lastname= $("#last").val(),
@@ -120,7 +120,7 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 		});
 	});
 
-/*----username-----*/
+/*----username--------------------------------------------------*/
 
 	$.getJSON("xhr/check_login.php", function(data){
 		console.log(data);
@@ -132,7 +132,7 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 	
 	
 	
-	/*----New Project-----*/
+	/*----New Project--------------------------------------------------*/
 	
 	
 		$("#addButton").on("click", function(){
@@ -164,8 +164,62 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 			});
 	});
 	
+	/*--------------Date Picker--------------------------------------------------*/
 	
-	/*----Get Projects-----*/
+  $( ".mydatepicker" ).datepicker();
+  
+ /*--------------Sortable--------------------------------------------------*/ 
+  
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
+	
+	
+	    $("input[type=submit], a, button")
+    	.button()
+    	.click(function(e){
+    		e.preventDefault();
+    	});
+
+	
+ /*--------------Resizable--------------------------------------------------*/ 
+
+
+  $( ".resizable" ).resizable();
+
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+	
+	/*-------------Tags--------------------------------------------------*/
+	
+	    $( ".tags" ).autocomplete({
+      source: availableTags
+    });
+
+
+	
+	/*-------------Get Projects--------------------------------------------------*/
 	
 	
 	
@@ -194,23 +248,23 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 							+ "</div> <br>"
 						);
 					};
-					$(".deletebtn").on("click", function(e){
-						console.log("test delete");
+				$('.deletebtn').on('click',function (e) {
+						var pid = $(this).parent().find(".projectid").val();
+						console.log('test delete');
 						$.ajax({
-							url: "xhr/delete_project.php",
-							data: {
-								projectID: result.id
+							url:'xhr/delete_project.php',
+							data:{
+								projectID : pid
 							},
-							type: "POST",
-							dataType: "json",
-							success: function(response){
-								console.log("Testing for success");
-								
-								if(response.error) {
+							type:'POST',
+							dataType:'json',
+							success: function (response) {
+								console.log("testing for success");
+
+								if(response.error){
 									alert(response.error);
 								}else{
-									//console.log(result.id);
-									window.location.assign("projects.html");
+									window.location.assign("projects.html")
 								};
 							}
 						});
