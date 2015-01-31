@@ -27,37 +27,6 @@ p {
 }
 
 
-ul.b {
-    list-style-type: square;
-}
-
-#sortable 
-{ list-style-type: none; margin: 0; padding-left: 30px; width: 95%; }
-
-#sortable li 
-{ margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-
-#sortable li span 
-{ position: absolute; margin-left: -1.3em; }
-
-.resizable 
-{ width: 200px; height: 250px; padding: 0.5em; }
-
-.resizable h3 
-{ text-align: center; margin: 0; }
-
-.form_style{
-	margin:2%;
-	background-color:#828BB2;
-	color: black;
-}
-
-.form_container{
-	background-color:#354179;
-	width:300px;
-	text-align: center;
-
-}
 #header {
 	width : 960px;
 	float : left;
@@ -146,7 +115,7 @@ h2{
 	color : #4b4537;
 	letter-spacing : -1px;
 	text-transform : none;
-	line-height : 22px;
+	line-height : 15px;
 	font-size : 18px;
 	font-weight : normal;
 	text-align : left;
@@ -590,3 +559,51 @@ input[type=radio]:checked + img{
 	border:2px solid #f00;
 }
 
+
+ul.b {
+    list-style-type: square;
+}
+
+#sortable 
+{ list-style-type: none; margin: 0; padding-left: 30px; width: 95%; }
+
+#sortable li 
+{ margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+
+#sortable li span 
+{ position: absolute; margin-left: -1.3em; }
+
+.resizable 
+{ width: 200px; height: 250px; padding: 0.5em; }
+
+.resizable h3 
+{ text-align: center; margin: 0; }
+
+.form_style{
+	margin:2%;
+	background-color: white;
+	color: black;
+}
+
+.form_container{
+	background-color:#fff200;
+	width: 400px;
+	text-align: center;
+	align:center;
+	border: black 1px solid;
+	padding:5px;
+	width : 460px;
+	padding-bottom:4px;
+	margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border-radius: 10px;
+	box-shadow: 5px 5px 5px 0px #888888;
+
+}
+
+  #feedback { font-size: 1.4em; }
+  #selectable .ui-selecting { background: #FECA40; }
+  #selectable .ui-selected { background: #F39814; color: white; }
+  #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }

@@ -217,8 +217,33 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
       source: availableTags
     });
 
-
 	
+	$('#reg_button').click(function () {
+		window.location.assign("registration.html");
+	});	
+
+	$('#profilebtn').click(function () {
+		window.location.assign("profile.html");
+	});
+
+	$('.projectsbtn').click(function () {
+		window.location.assign("project.html");
+	});	
+	
+	$('#logOut').click(function (e) {
+		e.preventDefault;
+		$.get('xhr/logout.php',function () {
+			window.location.assign('index.html');
+		});
+	});
+		/*-------------Selectable--------------------------------------------------*/
+	
+	
+	 $(function() {
+    $( ".selectable" ).selectable();
+  });
+  
+  
 	/*-------------Get Projects--------------------------------------------------*/
 	
 	
