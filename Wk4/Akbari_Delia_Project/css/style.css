@@ -329,7 +329,7 @@ input.form {
 	float : left;
 }
 
-#navigation li a {
+a.link1:link, a.link1:visited, a.link1:active {
 	font-family : tahoma;
 	font-variant : small-caps;
 	font-size : 13px;
@@ -348,14 +348,14 @@ input.form {
 	border : 0px;
 }
 
-#navigation li a:hover {
+a.link1:hover {
 	background : url("");
 	text-decoration : none;
 	color : #00bff3;
 	border : 0;
 }
 
-#navigation li a span {
+a.link1 li a span {
 	font-family : tahoma, sans-serif;
 	font-weight : normal;
 	color : #6d592b;
