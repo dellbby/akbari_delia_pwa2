@@ -3,7 +3,8 @@
 	Author: Delia Akbari
 */
 
-(function($){  //MOVED FROM LINE 52  THIS NEEDS TO BE THE FIRST LINE
+(function($){  
+
 /*----------------------tooltip--------------------------------------------------*/
 
 	$(".masterTooltip").hover(function(){
@@ -186,7 +187,9 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 
   $( ".resizable" ).resizable();
 
-    var availableTags = [
+ 
+	/*-------------Tags--------------------------------------------------*/
+	   var availableTags = [
       "ActionScript",
       "AppleScript",
       "Asp",
@@ -211,17 +214,12 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
       "Scheme"
     ];
 	
-	/*-------------Tags--------------------------------------------------*/
-	
 	    $( ".tags" ).autocomplete({
       source: availableTags
     });
-
 	
-	$('#reg_button').click(function () {
-		window.location.assign("registration.html");
-	});	
-
+/*-------------Buttons--------------------------------------------------*/
+	
 	$('#profilebtn').click(function () {
 		window.location.assign("profile.html");
 	});
@@ -238,9 +236,8 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 	});
 		/*-------------Selectable--------------------------------------------------*/
 	
-	
-	 $(function() {
-    $( ".selectable" ).selectable();
+ $(function() {
+    $( "#selectable" ).selectable();
   });
   
   
@@ -299,5 +296,57 @@ $('.mystatus') .mouseover(function(){   //HAVE AN . AFTER MYSTATUS
 		})
 	}
 projects();
+
+/*-------------Update Accounts--------------------------------------------------*/
+	var updateAcct=function(){
+		console.log('Pulls user info');
+		$.ajax({
+			url:'xhr/get_user.php',
+			type:'get',
+			dataType: 'json',
+			success: function(response){
+				if(response.error){
+					console.log(response.error);
+				}else{
+					var updatefirstname = response.user.first_name;
+					var updatelastname = response.user.last_name;
+					var updateemail = response.user.email;
+
+					$('#updatefirstname').val(updatefirstname);
+					$('#updatelastname').val(updatelastname);
+					$('#updateemail').val(updateemail);
+
+				};
+			}
+		});
+
+		$('#updateAcctBtn').on('click',function(e){
+			e.preventDefault();
+			var changedfirstname = $('#updatefirstname').val();
+			var changedlastname = $('#updatelastname').val();
+			var changedemail = $('#updateemail').val();
+			$.ajax({
+				url:'xhr/update_user.php',
+				type:'post',
+				dataType: 'json',
+				data:{
+					first_name : changedfirstname,
+					last_name : changedlastname,
+					email : changedemail
+
+				},
+				success: function(response){
+					if(response.error){
+						console.log(response.error);
+					}else{
+						console.log('account updated');
+					};
+				}
+			
+			});
+
+		});
+	};
+	updateAcct();
 
 })(jQuery);
